@@ -6,11 +6,13 @@ import java.util.Arrays;
  */
 public class ArrayUtils{
 	public static void main(String[] args){
-		int[] a = {1,2,3,1,2,1,1,6,1,1};
-		int[] b = {1,2,2,3,4};
+		// int[] a = {1,2,3,1,2,1,1,6,1,1};
+		// int[] b = {1,2,2,3,4};
+		int[][] c = {{1,2,8,9}, {2,4,9,12},{4,7,10,13},{6,8,11,15}};
+		System.out.println(isExisted(c, 15));
 		// findMostAppears(a);
-		findOnlyOneRepeat(b);
-		findOnlyOneRepeatByXOR(b);
+		// findOnlyOneRepeat(b);
+		// findOnlyOneRepeatByXOR(b); 
 	}
 
 	/**
@@ -66,5 +68,33 @@ public class ArrayUtils{
 			result ^= i;
 		}
 		System.out.println(result);
+	}
+
+	/**
+	 * 题目：一个二维数组，每行都按照从左到右递增的顺序排列，每列都按照从上到下递增的顺序排列。查找数组中是否存在给定的数；
+	 * 算法：1. 选取右上角的数，如果是，则结束；2.如果>，剔除所在列；3. 如果小于，剔除所在行；
+	 * @param  a 二维数组
+	 * @param num 要查找的数
+	 * @return boolean 是否找到
+	 */
+	public static boolean isExisted(int[][] a, int num){
+		boolean isFind = false;
+		int rows = a.length;
+		int columns = a[0].length;
+		if (a != null && rows > 0 && columns > 0) {
+			int row = 0;
+			int column = columns - 1;
+			while(row < rows && column >= 0){
+				if (a[row][column] == num) {
+					isFind = true;
+					break;
+				}else if (a[row][column] > num) {
+					column--;
+				}else{
+					row++;
+				}
+			} 
+		}
+		return isFind;
 	}
 }

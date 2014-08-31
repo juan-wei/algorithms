@@ -8,6 +8,7 @@ public class QuickSort {
 
 		System.out.println("before sort:\n"+Arrays.toString(data));
 		quickSort(data);
+		
 		System.out.println("after sort:\n"+Arrays.toString(data));
 	}
 
@@ -42,4 +43,6 @@ public class QuickSort {
 		data[j] = data[i] - data[j];
 		data[i] = data[i] - data[j];
 	}
+
+	
 } 
