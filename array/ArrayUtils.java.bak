@@ -15,8 +15,7 @@ public class ArrayUtils{
 		// findOnlyOneRepeatByXOR(b); 
 
 		String str = "abc";
-		// permutation(str);
-
+		permutation(str);
 	}
 
 	/**
@@ -130,8 +129,7 @@ public class ArrayUtils{
 	}
 
 	private  static void permutaionByLoop(char[] chars){
-		//================排序====================
-		Arrays.sort();
+
 	}
 
 	
@@ -158,8 +156,6 @@ public class ArrayUtils{
 			}
 		}
 	}
-
-
 	/**
 	 * 题目：交换数组中的两个数
 	 * @param chars
