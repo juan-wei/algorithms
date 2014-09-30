@@ -159,6 +159,52 @@ public class ArrayUtils{
 		}
 	}
 
+	/**
+	 * 打印二维数组
+	 * @param a
+	 */
+	public static void print2DArray(int[][] a){
+		for (int i = 0; i < a.length; i++) {
+			for (int j = 0; j < a[i].length; j++) {
+				System.out.print(a[i][j]+"\t");
+			}
+			System.out.println();
+		}
+	}
+	
+	/**
+	 * 将数组顺时针旋转90度
+	 * 算法：将数组分层layers=a.length/2;一层一层调换位置
+	 * @param a 
+	 */
+	public static void rotate90(int[][] a){
+		
+		int n = a.length;
+		for (int layer = 0; layer < n/2; layer++) {
+			int first = layer;
+			int last = n-1-layer; //每层最后一个位置
+			System.out.println("first="+first+",layer="+layer+",n="+n+",last="+last);
+			
+			for (int i = first; i < last; i++) { //第first层
+				
+				int offset = i-first;
+				
+				//save top
+				int top = a[first][i];
+				//left -> top
+				a[first][i] = a[last-offset][first];
+				//bottom -> left
+				a[last-offset][first] = a[last][last-offset];
+				//right -> bottom
+				a[last][last-offset] = a[i][last];
+				//top-right
+				a[i][last] = top;
+			}
+			System.out.println("after rotate :"+first+" layer:");
+			print2DArray(a);
+		}
+		System.out.println("==========================\nfinished!");
+	}
 
 	/**
 	 * 题目：交换数组中的两个数
