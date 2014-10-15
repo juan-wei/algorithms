@@ -20,6 +20,22 @@ public class ArrayUtils{
 	}
 
 	/**
+	 * 从一个byte数组中读取一个int数
+	 * @param bts byte数组
+	 * @param start int数的起始存储位置
+	 * @param len byte的长度
+	 * @param isBE TRUE-大端模式，FALSE-小端模式
+	 * @return int数
+	 */
+	public static int byte2Int(byte[] bts, int start, int len, boolean isBE){
+		int n = 0;
+		for (int i = start, k=start+len%(Integer.SIZE/Byte.SIZE+1); i < k; i++) { // k:int数的结尾位置
+			n |= (bts[i]& 0xff) << ((isBE?(k-i-1):i)*Byte.SIZE); //"|="用于将各个字节连接起来，
+		}
+		return n;
+	}
+	
+	/**
 	 * 用于查找数组中出现次数超过一半的数，时间复杂度为O(n)
 	 * @param a
 	 */
