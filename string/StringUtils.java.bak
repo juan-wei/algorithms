@@ -9,7 +9,6 @@ public class StringUtils {
 		replaceAllBlank(replacePartBlank(str),"%20");
 
 	}
-//================问题1：去掉字符串中重复的空格======================================
 
 	/**
 	 *  问题：将一个字符串中所有的空格替换成“%20”
@@ -24,6 +23,7 @@ public class StringUtils {
 		System.out.println("before:"+string+"\nafter:"+str);
 	}
 
+	//================问题1：去掉字符串中重复的空格==================================================
 	/**
 	 *  算法：用正则表达式完成
 	 * @param string 
@@ -73,6 +73,4 @@ public class StringUtils {
 		
 		return sb.toString();
 	}
-
-//================问题1  end==============================================================
 }
